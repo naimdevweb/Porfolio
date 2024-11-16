@@ -162,7 +162,7 @@ color: var(--main-color);
 }
 
 
-.text-animation {
+ .text-animation {
     font-size: 34px;
     font-weight: 600;
     display: inline-block;
@@ -173,38 +173,51 @@ color: var(--main-color);
     position: relative;
 }
 
-/* Ajouter le texte "Développeur Web" avec ::before */
+
 .text-animation span::before {
-    content: "Développeur Web";  /* Texte dans le CSS */
-    color: #04fffb;              /* Couleur initiale */
-    animation: colorShift 10s infinite alternate ease-in-out; /* Animation de changement de couleur */
-    transition: transform 0.3s ease-in-out; /* Transition pour l'effet de grossissement */
+    content: "Développeur Web";  
+    color: #04fffb;             
+    animation: colorShift 10s infinite alternate ease-in-out;
+    transition: transform 0.3s ease-in-out; 
 }
 
-/* Animation de changement de couleur */
+
 @keyframes colorShift {
     0% {
-        color: #04fffb; /* Bleu turquoise clair (couleur initiale) */
+        color: #04fffb; 
     }
     25% {
-        color: #ff6347; /* Tomate */
-    }
-    50% {
-        color: #1e90ff; /* Bleu dodger */
+        color: #ff6347;
     }
     75% {
-        color: #04fffb; /* Retour à la couleur initiale */
+        color: #04fffb; 
     }
     100% {
-        color: #ff6347; /* Tomate */
+        color: #21ff3f; 
     }
 }
 
-/* Effet de grossissement au survol du texte */
-.text-animation span:hover {
-    cursor: pointer;
-    transition: 0.3s ease-in-out
-    fontw 800;
-    transform: scale(1.1);
-    margin-left: 10px;
+
+.dev {
+    font-weight: 600;
 }
+
+.dev:hover {
+    cursor: pointer;
+    animation: glitch 0.5s infinite; /* Animer le glitch */
+} 
+
+
+
+@keyframes glitch {
+    0% { transform: translate(0, 0); }
+    20% { transform: translate(-2px, -2px); }
+    40% { transform: translate(2px, 0); }
+    60% { transform: translate(-2px, 2px); }
+    80% { transform: translate(2px, -2px); }
+    100% { transform: translate(0, 0); }
+}
+
+
+ 
+
