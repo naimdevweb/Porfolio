@@ -1,3 +1,31 @@
+// fetch("https://gh-pinned-repos-tsj7ta5xfhep.deno.dev/?username=Naimdevweb")
+// .then(rep => rep.json())
+// .then(donnees => ajouterDonnees(donnees))
+// function ajouterDonnees(donnees){
+
+//   const services = document.querySelector(".services-container")
+  
+//   donnees.forEach((donnee) => {
+//     services.innerHTML += 
+
+//     `
+//     <div class="services-box">
+//         <div class="services-info">
+//           <div class="image-cropper">
+//             <a href="${donnee.link}">
+//               <div class="image" style="background-image: url('${donnee.image}');"></div>
+//             </a>
+            
+//           </div>
+         
+//         </div>
+//       </div>
+//     `
+    
+//   })
+
+// }
+
 // Sélectionner l'élément du diaporama
 const diaporama = document.querySelector('.diaporama');
 
@@ -24,6 +52,9 @@ servicesBoxes.forEach(serviceBox => {
 diaporama.addEventListener('mouseleave', resumeAnimation); // Reprendre l'animation lorsque la souris quitte l'élément diaporama
 
 
+
+
+
 let menuIcon = document.querySelector('#menu-icon');
 let navbar = document.querySelector('.navbar');
 let sections = document.querySelectorAll('section');
@@ -40,8 +71,8 @@ window.onscroll = () => {
         if(top >= offset && top < offset + height){
             navLinks.forEach(links => {
                 links.classList.remove('active');
-                document.querySelector('header nav a [href#=' + id + ']').classList.add
-                ('active');
+                document.querySelector('header nav a[href="#' + id + '"]').classList.add('active');
+
             })
         }
     })
@@ -51,3 +82,22 @@ menuIcon.onclick = () => {
     menuIcon.classList.toggle('bx-x');
     navbar.classList.toggle('active');
 }
+
+
+// const image = document.querySelector('.home-img')
+// image.addEventListener('mouseenter', Handleimageborder);
+// image.addEventListener('mouseleave', Handleimageborder);
+//  function Handleimageborder(event){
+//   const imageEvent = event.target
+//   imageEvent.classList.toggle('border-red')
+//  }
+
+
+ 
+//  const image2 = document.querySelector('#img')
+// image2.addEventListener('mouseenter', Handleimagebordergreen);
+// image2.addEventListener('mouseleave', Handleimagebordergreen);
+//  function Handleimagebordergreen(event){
+//   const imageEvent = event.target
+//   imageEvent.classList.toggle('border-green')
+//  }
