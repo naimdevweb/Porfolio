@@ -4,46 +4,59 @@
     
 <!-- Google tag (gtag.js) -->
 <!-- Chargement de Tarteaucitron -->
-<script type="text/javascript" src="https://tarteaucitron.io/load.js?c=your_id" async defer></script>
+<!-- Charger Tarteaucitron -->
+<script type="text/javascript" src="https://tarteaucitron.io/load.js?c=ton_id_unique" async defer></script>
 
 <script type="text/javascript">
-  tarteaucitron.init({
-    "privacyUrl": "", /* URL de ta politique de confidentialité */
-    "hashtag": "#tarteaucitron",
-    "cookieName": "tarteaucitron",
-    "orientation": "bottom",
-    "showAlertSmall": true,
-    "cookieslist": true
-  });
-
-  // Google Analytics géré par Tarteaucitron (et non en dur dans <head>)
-  tarteaucitron.services.gtag = {
-    "key": "gtag",
-    "type": "analytic",
-    "name": "Google Analytics",
-    "uri": "https://policies.google.com/privacy",
-    "needConsent": true,
-    "cookies": ["_ga", "_gid", "_gat"],
-    "js": function () {
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      
-      gtag('consent', 'default', {
-        'analytics_storage': 'denied'
+  // S'assurer que le script est bien chargé avant d'initialiser Tarteaucitron
+  (function() {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.async = true;
+    script.defer = true;
+    script.src = "https://tarteaucitron.io/load.js?c=ton_id_unique";
+    script.onload = function() {
+      // Initialisation de Tarteaucitron
+      tarteaucitron.init({
+        "privacyUrl": "", // Lien vers ta politique de confidentialité
+        "hashtag": "#tarteaucitron",
+        "cookieName": "tarteaucitron",
+        "orientation": "bottom",
+        "showAlertSmall": true,
+        "cookieslist": true
       });
 
-      gtag('js', new Date());
-      
-      gtag('config', 'G-STEDDFMTGC', { 'anonymize_ip': true });
-      
-      console.log("Google Analytics activé après consentement.");
-    }
-  };
+      // Google Analytics via Tarteaucitron
+      tarteaucitron.services.gtag = {
+        "key": "gtag",
+        "type": "analytic",
+        "name": "Google Analytics",
+        "uri": "https://policies.google.com/privacy",
+        "needConsent": true, // Demande le consentement avant de charger
+        "cookies": ["_ga", "_gid", "_gat"],
+        "js": function () {
+          window.dataLayer = window.dataLayer || [];
+          function gtag() { dataLayer.push(arguments); }
 
-  (tarteaucitron.job = tarteaucitron.job || []).push('gtag');
+          // Consentement initial (pas encore activé)
+          gtag('consent', 'default', {
+            'analytics_storage': 'denied'
+          });
 
-  console.log(window.dataLayer);
+          gtag('js', new Date());
 
+          // Configurer Google Analytics avec anonymisation de l'IP
+          gtag('config', 'G-STEDDFMTGC', { 'anonymize_ip': true });
+
+          console.log("Google Analytics activé après consentement.");
+        }
+      };
+
+      // Ajoute le job de Tarteaucitron pour Google Analytics
+      (tarteaucitron.job = tarteaucitron.job || []).push('gtag');
+    };
+    document.head.appendChild(script);
+  })();
 </script>
 
     <meta charset="UTF-8" />
