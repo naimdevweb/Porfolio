@@ -84,6 +84,8 @@ menuIcon.onclick = () => {
 }
 
 
+
+
 // const image = document.querySelector('.home-img')
 // image.addEventListener('mouseenter', Handleimageborder);
 // image.addEventListener('mouseleave', Handleimageborder);
