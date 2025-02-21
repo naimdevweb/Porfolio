@@ -37,13 +37,14 @@ justify-content: space-between;
 align-items: center;
 z-index: 100;
 }
-.logo{
+.logo {
     font-size: 3rem;
-    color: var(--text-color)
-    fontw 800;
+    color: var(--text-color);
+    font-weight: 800;
     cursor: pointer;
     transition: 0.3s ease-in-out;
 }
+
 .logo:hover{
     transform: scale(1.1);
 }
@@ -432,6 +433,7 @@ color: var(--main-color);
     grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); /* Largeur des boîtes plus grandes, adaptable */
     gap: 2rem; /* Réduction de l'espace entre les boîtes */
     justify-items: center; 
+   
 }
 
 /* Box des services */
@@ -451,6 +453,7 @@ color: var(--main-color);
     text-align: center;
     overflow: hidden;
     transition: 0.3s ease-in-out;
+    
   }
   
   /* Effet au survol des boîtes */
@@ -464,6 +467,7 @@ color: var(--main-color);
 /* Infos du service */
 .services-info {
     display: flex;
+    height: auto !important;
     flex-direction: column;
     justify-content: flex-start; /* Aligne le contenu vers le haut */
     align-items: center;
@@ -569,6 +573,7 @@ color: var(--main-color);
     height: 100%; 
     overflow: hidden; 
     position: relative;
+    
 }
 
 
@@ -960,6 +965,7 @@ color: var(--main-color);
     .services-box{
         display: flex;
         
+        
     }
 
     .social-icons a {
@@ -970,6 +976,8 @@ color: var(--main-color);
         font-size: 1.3rem;
         padding: 0.8rem 2rem;
     }
+   
+    
 }
 
 
@@ -1012,26 +1020,35 @@ color: var(--main-color);
 /* ...existing code... */
 
 .projet-description {
-    font-size: 1.7em;
+    font-size: 1.7rem;
     color: #333;
     text-align: center;
     margin: 20px auto;
-    padding: 15px 20px;
+   padding: 20px;
     background-color: #f9f9f9;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-    max-width: 800px;
+   
     font-family: 'Poppins', sans-serif;
     line-height: 1.6;
+    
+    /* Assurer que le texte s'affiche correctement */
+   
 }
 
-.projet-description:hover {
-    transform: translateY(-5px);
-    /* box-shadow: 0 8px 16px rgba(--var-color); */
-    background-color: var(--main-color);
+/* Ajustement spécifique pour les mobiles */
+@media (max-width: 480px) {
+    .projet-description {
+        font-size: 1.4rem;
+       margin-top: 20px;
+        line-height: 1.5;
+       
+        /* Empêcher le texte d’être coupé */
+        max-height: none;
+        overflow: visible;
+
+    }
+   
 }
-
-
-
 
